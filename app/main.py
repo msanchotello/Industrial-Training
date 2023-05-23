@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Response, status, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from typing import Optional
 from sqlalchemy.orm import Session
 from . import models
@@ -20,12 +21,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
-# returns a homepage for testing purposes
+
+# returns the homepage
 @app.get("/")
 def get_homepage():
-    with open("./app/html/test.html", "r") as file:
+    with open("static/PaginaInicial.html", "r") as file:
         html_content = file.read()
     return HTMLResponse(content=html_content, status_code=200)
 
@@ -33,7 +36,7 @@ def get_homepage():
 
 # returns all the different products
 @app.get("/products")
-def get_products(db: Session = Depends(get_db), limit: Optional[int] = 10, skip: Optional[int] = 0, search: Optional[str] = ""):
+def get_products(db: Session = Depends(get_db), limit: Optional[int] = 20, skip: Optional[int] = 0, search: Optional[str] = ""):
     
     products = db.query(models.Product).filter(models.Product.name.contains(search)).limit(limit).offset(skip).all()
     
