@@ -43,20 +43,41 @@ For example, GET request to **ourwebsite.com/products?search=smoothie&limit=2** 
 - returns product with specific product ID (includes all variations of said product)
 (variants list will contain all the different variants of this product, such as at which supermarket it is being sold at and at what price)
 
-Example return when sending a GET request to **ourwebsite.com/products/21**:
+Example return when sending a GET request to **ourwebsite.com/products/1**:
 
 {
     "product": {
-        "brand": "Baba",
-        "name": "Baba Tahinismoothie Mango & passion 250 ml",
-        "ID": 21,
+        "brand": "Marli",
+        "name": "Marli Marjainen smoothie + D&C -vitamiinit 2,5 dl",
+        "ID": 1,
         "catID": 1,
-        "EAN": 6430056262017,
+        "EAN": 6415130036913,
         "category": {
             "name": "Drink",
             "CatID": 1
         },
-        "variants": []
+        "variants": [
+            {
+                "price": 2.0,
+                "ProID": 1,
+                "VarID": 1,
+                "SupID": 2,
+                "supermarket": {
+                    "name": "K-market",
+                    "supID": 2
+                }
+            },
+            {
+                "price": 3.0,
+                "ProID": 1,
+                "VarID": 3,
+                "SupID": 2,
+                "supermarket": {
+                    "name": "K-market",
+                    "supID": 2
+                }
+            }
+        ]
     }
 }
 
@@ -103,6 +124,29 @@ Example return when calling **ourwebsite.com/products/categories/1?limit=3** (dr
 # ourwebsite.com/products/variations/{ID}
 - returns all the variations of a specific product 
 
-No example return yet, but it will return a list of the variations, where each variant contains the supermarket and price of the product
+{
+    "variations": [
+        {
+            "price": 2.0,
+            "ProID": 1,
+            "VarID": 1,
+            "SupID": 2,
+            "supermarket": {
+                "name": "K-market",
+                "supID": 2
+            }
+        },
+        {
+            "price": 3.0,
+            "ProID": 1,
+            "VarID": 3,
+            "SupID": 2,
+            "supermarket": {
+                "name": "K-market",
+                "supID": 2
+            }
+        }
+    ]
+}
 
 
