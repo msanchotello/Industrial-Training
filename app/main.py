@@ -69,7 +69,7 @@ def get_product(id: int, response: Response, db: Session = Depends(get_db)):
 
 # returns all products belonging to a certain category (1 = drinks, 2 = vegetables, 3 = meats ..)
 @app.get("/products/categories/{catID}")
-def get_products(catID: int, db: Session = Depends(get_db), limit: Optional[int] = 10, search: Optional[str] = ""):
+def get_products(catID: int, db: Session = Depends(get_db), limit: Optional[int] = 50, search: Optional[str] = ""):
     
     products_query = db.query(models.Product).filter(models.Product.catID == catID)
     products = products_query.filter(models.Product.name.contains(search)).limit(limit).all()
@@ -95,3 +95,24 @@ def get_variations(id: int, response: Response, db: Session = Depends(get_db), l
                             detail=f"product with id {id} was not found")
     
     return {"variations": variations}
+
+
+
+# returns a google maps based on the area.
+@app.get("/maps/{area}")
+def get_map(area: str, response: Response):
+    
+    if area == "helsinki":
+        url = "<iframe src=\"https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31738.75077048616!2d24.932495627957195!3d60.18616242634652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHelsinki%20supermarkets!5e0!3m2!1ses!2sfi!4v1685012683752!5m2!1ses!2sfi\" width=\"100%\" height=\"350\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
+    elif area == "vantaa":
+        url = "<iframe src=\"https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d61108.53710359107!2d24.87627548935341!3d60.29677515636218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sVantaa%20supermarkets!5e0!3m2!1ses!2sfi!4v1685012749093!5m2!1ses!2sfi\" width=\"100%\" height=\"350\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
+    elif area == "espoo":
+        url = "<iframe src=\"https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d126898.99942255983!2d24.557142083092582!3d60.200644549222936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1salepa%20and%20kmarket%20%20espoo!5e0!3m2!1ses-419!2sfi!4v1684690940056!5m2!1ses-419!2sfi\" width=\"100%\" height=\"350\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>"
+    else:
+        url = None
+
+    if not url:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f"{area} was not found")
+    
+    return {"link": url}
