@@ -47,7 +47,7 @@ function searchProducts(event) {
   container.innerHTML = "";
 
   // Fetch products based on the keyword
-  fetch(`http://localhost:8000/products/categories/1?search=${keyword}`)
+  fetch(`http://supermarket-comparator.onrender.com/products/categories/1?search=${keyword}`)
     .then(response => response.json())
     .then(data => {
       const products = data.products;
@@ -92,7 +92,7 @@ function searchProducts(event) {
 
 
 function cargar(productID) {
-  fetch(`http://localhost:8000/products/variations/${productID}`)
+  fetch(`supermarket-comparator.onrender.com/products/variations/${productID}`)
     .then(response => response.json())
     .then(data => {
       selection.style.visibility = "visible";
