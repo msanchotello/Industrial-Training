@@ -3,7 +3,7 @@ let selection = document.getElementById("selection");
 let priceSelection = document.getElementById("variations");
 
 // Fetch products from the API
-fetch("http://localhost:8000/products/categories/1")
+fetch("supermarket-comparator.onrender.com/products/categories/1")
   .then(response => response.json())
   .then(data => {
     // Generate the product elements dynamically
