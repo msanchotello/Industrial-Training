@@ -38,7 +38,7 @@ def get_homepage():
 @app.get("/products")
 def get_products(db: Session = Depends(get_db), limit: Optional[int] = 20, skip: Optional[int] = 0, search: Optional[str] = ""):
     
-    products = db.query(models.Product).filter(models.Product.name.contains(search)).limit(limit).offset(skip).all()
+    products = db.query(models.Product).filter(models.Product.name.contains(search)).offset(skip).limit(limit).all()
     
     # for p in products:
     #     p.category
@@ -69,10 +69,10 @@ def get_product(id: int, response: Response, db: Session = Depends(get_db)):
 
 # returns all products belonging to a certain category (1 = drinks, 2 = vegetables, 3 = meats ..)
 @app.get("/products/categories/{catID}")
-def get_products(catID: int, db: Session = Depends(get_db), limit: Optional[int] = 50, search: Optional[str] = ""):
+def get_products(catID: int, db: Session = Depends(get_db), limit: Optional[int] = 25, skip: Optional[int] = 0, search: Optional[str] = ""):
     
     products_query = db.query(models.Product).filter(models.Product.catID == catID)
-    products = products_query.filter(models.Product.name.contains(search)).limit(limit).all()
+    products = products_query.filter(models.Product.name.contains(search)).offset(skip).limit(limit).all()
 
     if not products_query:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,

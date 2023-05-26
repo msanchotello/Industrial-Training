@@ -3,7 +3,7 @@ let selection = document.getElementById("selection");
 let priceSelection = document.getElementById("variations");
 
 // Fetch products from the API
-fetch(`https://supermarket-comparator.onrender.com/products/categories/2`)
+fetch(`http://localhost:8000/products/categories/2`)
   .then(response => response.json())
   .then(data => {
     // Generate the product elements dynamically
@@ -48,7 +48,7 @@ function searchProducts(event) {
   container.innerHTML = "";
 
   // Fetch products based on the keyword
-  fetch(`https://supermarket-comparator.onrender.com/products/categories/2?search=${keyword}`)
+  fetch(`http://localhost:8000/products/categories/2?search=${keyword}`)
     .then(response => response.json())
     .then(data => {
       const products = data.products;
@@ -93,7 +93,7 @@ function searchProducts(event) {
 
 
 function cargar(productID) {
-  fetch(`https://supermarket-comparator.onrender.com/products/variations/${productID}`)
+  fetch(`http://localhost:8000/products/variations/${productID}`)
     .then(response => response.json())
     .then(data => {
       selection.style.visibility = "visible";

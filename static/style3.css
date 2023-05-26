@@ -78,7 +78,6 @@ h1{
 .container {
     margin-left: 5%;
     margin-right: 5%;
-    
 }
 
 .container .product_container{ 
@@ -90,6 +89,10 @@ h1{
     
       
 }
+
+.pagination {
+    margin-top: 20px;
+  }
 
 .container .product_container .product{
     background: white;
