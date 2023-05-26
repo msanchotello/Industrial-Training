@@ -6,7 +6,7 @@ let currentSearchKeyword = '';
 
 // Fetch products from the API
 function fetchProducts(skip = 0, keyword = '') {
-  let url = `http://localhost:8000/products/categories/1?skip=${skip}`;
+  let url = `https://supermarket-comparator.onrender.com/products/categories/1?skip=${skip}`;
   if (keyword) {
     url += `&search=${keyword}`;
     currentSearchKeyword = keyword;
@@ -62,7 +62,7 @@ function updateProductContainer(products) {
 }
 
 function cargar(productID) {
-  fetch(`http://localhost:8000/products/variations/${productID}`)
+  fetch(`https://supermarket-comparator.onrender.com/products/variations/${productID}`)
     .then(response => response.json())
     .then(data => {
       selection.style.visibility = "visible";
@@ -130,9 +130,6 @@ function previousPage(event) {
     const skip = (currentPage - 1) * 25;
     fetchProducts(skip);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  } else {
-    const skip = (currentPage - 1) * 25;
-    fetchProducts(skip);
   }
 }
 

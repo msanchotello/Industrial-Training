@@ -2,13 +2,17 @@
 <html>
     <head>
         <title>Supermarket Comparator</title>
-        <link rel="stylesheet" href="../static/style2.css">
+        <link rel="stylesheet" href="style2.css">
+        
     </head>
 
     <body>
         <h1> 
-            <a href="PaginaInicial.html"><img src="logo.png" width="400px"></a>
+            <a href="PaginaInicial.html"><img src="logo.png" width="400px"></a>        
         </h1>
+       
+
+
         <header>
             <nav class="navegation">
                 <ul class="menu">
@@ -57,9 +61,16 @@
             <a href="#"><img src="Lavanderia.png" width="348" height="283"> </a>
         </div>
     
-        <div class="map">
-            <div class="mapa">Supermarkets in XXXX</div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d126898.99942255983!2d24.557142083092582!3d60.200644549222936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1salepa%20and%20kmarket%20%20espoo!5e0!3m2!1ses-419!2sfi!4v1684690940056!5m2!1ses-419!2sfi" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="maps">
+            <div class="map">Supermarkets
+               <button onclick="button1()">Espoo</button>
+               <button onclick="button2()">Helsinki</button>
+               <button onclick="button3()">Vantaa</button>
+            </div>
+
+            <iframe id="first_iframe"src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d126898.99942255983!2d24.557142083092582!3d60.200644549222936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1salepa%20and%20kmarket%20%20espoo!5e0!3m2!1ses-419!2sfi!4v1684690940056!5m2!1ses-419!2sfi" width="100%" height="350px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe id="second_iframe" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31738.75077048616!2d24.932495627957195!3d60.18616242634652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHelsinki%20supermarkets!5e0!3m2!1ses!2sfi!4v1685012683752!5m2!1ses!2sfi" width="100%" height="0px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+            <iframe id ="third_iframe"src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d61108.53710359107!2d24.87627548935341!3d60.29677515636218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sVantaa%20supermarkets!5e0!3m2!1ses!2sfi!4v1685012749093!5m2!1ses!2sfi" width="100%" height="0px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>       
         </div>
 
         <footer>
@@ -67,7 +78,7 @@
             <div class="texto3">Supermarket comparator 2023</div>
         </footer>
 
-        
+        <script src="map.js"></script>
 
     </body>
 </html>
