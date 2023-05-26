@@ -95,6 +95,10 @@ h1{
     background: white;
     padding: 10px 10px;
     align-items: center;
+    height: 315px;
+    max-height: 315px;
+    width: 235px;
+    max-width: 235px;
     display: block;
     
 }
@@ -119,9 +123,6 @@ h1{
     top:0; left:0;
     display: flex;
     position: fixed;
-    
-    
-
 }
 
 .close{
@@ -186,9 +187,11 @@ h1{
   }
   
   .supermarket-image {
-    width: 32px;
+    width: 128px;
+    min-width: 64px;
     height: 32px;
-    margin-right: 50px;
+    min-height: 32px;
+    margin-right: 100px;
   }
   
   .info .variation span {

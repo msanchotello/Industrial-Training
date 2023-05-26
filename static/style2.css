@@ -11,20 +11,11 @@ body{
 }
 
 h1{
-    align-items: center;
-    display: flex;
+    display: inline-block;
     padding: 20px ;
-    margin-left: -10%;
-    
 }
 
-.search{
-    font-size: medium;
-    margin-left: 20%;
-    margin-top: 1%;
-  
-    
-}
+
 
 .navegation{
     width: 100%;

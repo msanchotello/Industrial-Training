@@ -3,7 +3,7 @@ let selection = document.getElementById("selection");
 let priceSelection = document.getElementById("variations");
 
 // Fetch products from the API
-fetch(`https://supermarket-comparator.onrender.com/products/categories/1`)
+fetch(`https://supermarket-comparator.onrender.com/products/categories/2`)
   .then(response => response.json())
   .then(data => {
     // Generate the product elements dynamically
@@ -11,13 +11,14 @@ fetch(`https://supermarket-comparator.onrender.com/products/categories/1`)
       const productElement = document.createElement("div");
       productElement.classList.add("product");
       productElement.onclick = () => cargar(product.ID);
+      //productElement.style.padding = "10px 10px";
 
       const productName = document.createElement("h1");
       productName.textContent = product.name;
 
       const productImage = document.createElement("img");
-      const randomImageIndex = Math.floor(Math.random() * 10) + 1; // Generate a random image index between 1 and 10
-      productImage.src = `fruit${randomImageIndex}.jpg`;
+      const randomImageIndex = Math.floor(Math.random() * 7) + 1; // Generate a random image index between 1 and 7
+      productImage.src = `meat${randomImageIndex}.jpg`;
       productImage.style.width = "200px";
 
       productElement.appendChild(productName);
@@ -47,7 +48,7 @@ function searchProducts(event) {
   container.innerHTML = "";
 
   // Fetch products based on the keyword
-  fetch(`https://supermarket-comparator.onrender.com/products/categories/1?search=${keyword}`)
+  fetch(`https://supermarket-comparator.onrender.com/products/categories/2?search=${keyword}`)
     .then(response => response.json())
     .then(data => {
       const products = data.products;
@@ -67,8 +68,8 @@ function searchProducts(event) {
             productName.textContent = product.name;
       
             const productImage = document.createElement("img");
-            const randomImageIndex = Math.floor(Math.random() * 10) + 1; // Generate a random image index between 1 and 10
-            productImage.src = `fruit${randomImageIndex}.jpg`;
+            const randomImageIndex = Math.floor(Math.random() * 7) + 1; // Generate a random image index between 1 and 7
+            productImage.src = `meat${randomImageIndex}.jpg`;
             productImage.style.width = "200px";
       
             productElement.appendChild(productName);
@@ -118,7 +119,7 @@ function cargar(productID) {
         supermarketImage.alt = variation.supermarket.name;
 
         const variationText = document.createElement("span");
-        variationText.textContent = `${variation.price}€`; //${variation.supermarket.name}
+        variationText.textContent = `${variation.price}€`; //${variation.supermarket.name} redundant
 
         variationDiv.appendChild(supermarketImage);
         variationDiv.appendChild(variationText);
