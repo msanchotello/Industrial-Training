@@ -6,7 +6,21 @@ let currentSearchKeyword = '';
 
 // Fetch products from the API
 function fetchProducts(skip = 0, keyword = '') {
-  let url = `http://localhost:8000/products/categories/1?skip=${skip}`;
+  var protocol = window.location.protocol;
+  var currenthost = window.location.hostname;
+  
+  var port = window.location.port;
+  if (port != '') {
+    currenthost += ':' + port;
+  }
+
+  if (protocol == '') {
+    protocol = 'http:';
+  }
+  
+  currenthost = protocol + '//' + currenthost;
+  let url = currenthost + `/products/categories/1?skip=${skip}`;
+
   if (keyword) {
     url += `&search=${keyword}`;
     currentSearchKeyword = keyword;
@@ -63,7 +77,22 @@ function updateProductContainer(products) {
 }
 
 function cargar(productID) {
-  fetch(`http://localhost:8000/products/variations/${productID}`)
+  var protocol = window.location.protocol
+  var currenthost = window.location.hostname;
+  
+  var port = window.location.port;
+  if (port != '') {
+    currenthost += ':' + port
+  }
+
+  if (protocol == '') {
+    protocol = 'http:';
+  }
+
+  currenthost = protocol + '//' + currenthost
+
+  let url = currenthost + `/products/variations/${productID}`
+  fetch(url)
     .then(response => response.json())
     .then(data => {
       selection.style.visibility = "visible";
