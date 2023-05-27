@@ -28,7 +28,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # returns the homepage
 @app.get("/")
 def get_homepage():
-    with open("static/PaginaInicial.html", "r") as file:
+    with open("static/html/PaginaInicial.html", "r") as file:
         html_content = file.read()
     return HTMLResponse(content=html_content, status_code=200)
 
@@ -72,7 +72,7 @@ def get_product(id: int, response: Response, db: Session = Depends(get_db)):
 def get_products(catID: int, db: Session = Depends(get_db), limit: Optional[int] = 25, skip: Optional[int] = 0, search: Optional[str] = ""):
     
     products_query = db.query(models.Product).filter(models.Product.catID == catID)
-    products = products_query.filter(models.Product.name.contains(search)).offset(skip).limit(limit).all()
+    products = products_query.filter(models.Product.name.contains(search)).order_by(models.Product.EAN).offset(skip).limit(limit).all()
 
     if not products_query:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,

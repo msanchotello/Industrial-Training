@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Supermarket Comparator</title>
+        <link rel="stylesheet" href="../css/style2.css">
+        
+    </head>
+
+    <body>
+        <h1> 
+            <a href="../html/PaginaInicial.html"><img src="../img/logo.png" width="400px"></a>        
+        </h1>
+       
+
+
+        <header>
+            <nav class="navegation">
+                <ul class="menu">
+                    <li><a href="../html/PaginaPrincipal.html">HOME</a></li>
+                    <li><a href="#">FOOD</a>
+                        <ul class="submenu">
+                            <li><a href="../html/Meat.html">MEAT</a></li> 
+                            <li><a href="../html/Fruit.html">FRUIT</a></li>
+                            <li><a href="../html/Vegetables.html">VEGETABLES</a></li> 
+                        </ul>
+                    </li>
+                    <li><a href="#">DRINKS</a>
+                    <ul class="submenu">
+                        <li><a href="../html/Soda.html">SODA</a></li> 
+                        <li><a href="../html/Milk.html">MILK</a></li> 
+                    </ul>
+                    </li>
+                    <li><a href="#">PERSONAL CARE</a>
+                        <ul class="submenu"> 
+                            <li><a href="#">BODY CARE</a></li> 
+                        </ul>
+                    </li>
+                    <li><a href="#">CLEANING SUPPLIES</a>
+                        <ul class="submenu">  
+                            <li><a href="#">LAUNDRY</a></li> 
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="fondo">
+            <br>
+            <br>
+            <br>
+        </div>
+         
+        <div class="categories">Categories</div>
+       
+        <div class="container">
+            <a href="../html/Meat.html"><img src="../img/entrecot1.jpg" width="310"></a>
+            <a href="../html/Fruit.html"><img src="../img/Frutero.webp" width="310"></a>
+            <a href="#"><img src="../img/Zumos.webp" width="575" height="310"></a>
+            <a href="../html/Soda.html"><img src="../img/soda.jpg" width="425"></a>
+            <a href="#"><img src="../img/cuidadopersonal.jpg" width="425"></a>
+            <a href="#"><img src="../img/Lavanderia.png" width="348" height="283"> </a>
+        </div>
+    
+        <div class="maps">
+            <div class="map">Supermarkets
+               <button onclick="button1()">Espoo</button>
+               <button onclick="button2()">Helsinki</button>
+               <button onclick="button3()">Vantaa</button>
+            </div>
+
+            <iframe id="first_iframe"src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d126898.99942255983!2d24.557142083092582!3d60.200644549222936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1salepa%20and%20kmarket%20%20espoo!5e0!3m2!1ses-419!2sfi!4v1684690940056!5m2!1ses-419!2sfi" width="100%" height="350px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe id="second_iframe" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31738.75077048616!2d24.932495627957195!3d60.18616242634652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHelsinki%20supermarkets!5e0!3m2!1ses!2sfi!4v1685012683752!5m2!1ses!2sfi" width="100%" height="0px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+            <iframe id ="third_iframe"src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d61108.53710359107!2d24.87627548935341!3d60.29677515636218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sVantaa%20supermarkets!5e0!3m2!1ses!2sfi!4v1685012749093!5m2!1ses!2sfi" width="100%" height="0px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>       
+        </div>
+
+        <footer>
+            <div class="texto2">Compare prices and make the best choice</div>
+            <div class="texto3">Supermarket comparator 2023</div>
+        </footer>
+
+        <script src="../javascript/Map.js"></script>
+
+    </body>
+</html>
+

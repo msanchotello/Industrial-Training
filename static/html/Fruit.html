@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Supermarket Comparator</title>
+  <link rel="stylesheet" href="../css/style3.css">
+</head>
+
+<body>
+  <h1> 
+    <a href="../html/PaginaInicial.html"><img src="../img/logo.png" width="400px"></a>
+    <div class="search">
+      <form id="searchForm">
+        <input type="search" id="searchInput" placeholder="Search">
+      </form>
+    </div>
+  </h1>
+
+  <header>
+    <nav class="navegation">
+      <ul class="menu">
+        <li><a href="../html/PaginaPrincipal.html">HOME</a></li>
+        <li><a href="#">FOOD</a>
+          <ul class="submenu">
+            <li><a href="../html/Meat.html">MEAT</a></li> 
+            <li><a href="../html/Fruit.html">FRUIT</a></li>
+            <li><a href="../html/Vegetables.html">VEGETABLES</a></li>
+          </ul>
+        </li>
+        <li><a href="#">DRINKS</a>
+          <ul class="submenu">
+            <li><a href="../html/Soda.html">SODA</a></li>  
+            <li><a href="../html/Milk.html">MILK</a></li> 
+          </ul>
+        </li>
+        <li><a href="#">PERSONAL CARE</a>
+          <ul class="submenu"> 
+            <li><a href="#">BODY CARE</a></li> 
+          </ul>
+        </li>
+        <li><a href="#">CLEANING SUPPLIES</a>
+          <ul class="submenu">  
+            <li><a href="#">LAUNDRY</a></li> 
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="pagination" style="text-align: center;">
+    <button id="previousPageTopBtn">Previous Page</button>
+    <button id="nextPageTopBtn">Next Page</button>
+  </div>
+
+  <div class="container">
+    <div class="product_container" id="product_container"></div>
+    <div class="pagination" style="text-align: center;">
+      <button id="previousPageBottomBtn">Previous Page</button>
+      <button id="nextPageBottomBtn">Next Page</button>
+    </div>
+  </div>
+
+  <div class="selection" id="selection">
+    <div class="close" onclick="cerrar()";>
+      &#x2715
+    </div>
+    <div class="info">
+      <h2 id="item"></h2>
+      <div class="variations" id="variations"></div>
+    </div>
+  </div>
+
+  <footer style="margin-top: 240px">
+    <div class="texto2">Compare prices and make the best choice</div>
+    <div class="texto3">Supermarket comparator 2023</div>
+  </footer>
+
+  <script src="../javascript/fetchFruits.js"></script>
+</body>
+</html>
