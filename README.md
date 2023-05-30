@@ -3,7 +3,7 @@
 Requirements:
 - Python 3
 
-# Local
+# Running locally
 ## Clone the project
 ```
 git clone https://github.com/msanchotello/Industrial-Training.git
@@ -21,7 +21,7 @@ The application should now be running locally at http://127.0.0.1:8000
 
 ------------------------------------------------------------------------
 
-# Render.com
+# Running on Render.com
 ## Build Command
 ```
 pip install --upgrade pip && pip install -r requirements.txt
