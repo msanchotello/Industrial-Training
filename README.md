@@ -3,6 +3,7 @@
 Requirements:
 - Python 3
 
+# Local
 ## Clone the project
 ```
 git clone https://github.com/msanchotello/Industrial-Training.git
@@ -18,8 +19,21 @@ uvicorn app.main:app --reload
 
 The application should now be running locally at http://127.0.0.1:8000
 
+------------------------------------------------------------------------
+
+# Render.com
+## Build Command
+```
+pip install --upgrade pip && pip install -r requirements.txt
+```
+## Start Command
+```
+uvicorn app.main:app --host 0.0.0.0 --port 10000
+```
+
 ## API Documentation (Provided by Swagger UI)
 ----------------------------------------------------------------------
 ```
 http://127.0.0.1:8000/docs
 ```
+
